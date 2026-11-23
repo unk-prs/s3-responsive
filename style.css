@@ -5,17 +5,17 @@
   - Bazı test direktiflerinin ipuçlarını `responsive.jpg` dosyasında bulacaksın.
 
   Mobil tasarımı uygularken ihtiyaç duyacağınız bazı sayısal değerler:
-  - Tüm sayfa yazı büyüklüğü: 16px
-  - `header` gap değeri: 15px,
-  - `header` padding değerleri: üstten 20px, yanlardan 10px, alttan 15px
-  - Menü linkleri parentının 25% 'i,
-  - `hero` üst boşluk: 0, köşe yuvarlaklığı: 0
-  - `hero` yükseklik: ekran yüksekliğinin 70% 'i
-  - `hero` iç boşluk: 10px
+  - Tüm sayfa yazı büyüklüğü: 16px *
+  - `header` gap değeri: 15px, *
+  - `header` padding değerleri: üstten 20px, yanlardan 10px, alttan 15px *
+  - Menü linkleri parentının 25% 'i, *
+  - `hero` üst boşluk: 0, köşe yuvarlaklığı: 0 *
+  - `hero` yükseklik: ekran yüksekliğinin 70% 'i *
+  - `hero` iç boşluk: 10px *
 
   Ayrıca, `h1` ve `nav` elemanlaının yazı büyüklükleri de sayfanın genel yazı büyüklüğüne endekslenerek düzeltilmeli.
-  - Başlığın yazı büyüklüğü dokümanın yazı büyüklüğünün 2 katı olmalı. 
-  - Navigasyonun yazı büyüklüğü dokümanın yazı büyüklüğünün 0.75 katı olmalı. 
+  - Başlığın yazı büyüklüğü dokümanın yazı büyüklüğünün 2 katı olmalı. *
+  - Navigasyonun yazı büyüklüğü dokümanın yazı büyüklüğünün 0.75 katı olmalı. *
 */
 
 * {
@@ -46,8 +46,8 @@ body {
 header {
   padding: 25px 15px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: stretch;
 }
 
 .logo {
@@ -59,7 +59,7 @@ nav {
   display: flex;
   gap: 15px;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 0.75rem;
 }
 
 nav a {
@@ -87,7 +87,7 @@ nav a:hover {
 
 .hero h1 {
   margin: 0;
-  font-size: 40px;
+  font-size: 2rem;
   color: #70d000;
 }
 
@@ -97,3 +97,43 @@ nav a:hover {
 }
 
 /* hero alanı bitti */
+@media (max-width: 480px) {
+    html {
+        font-size: 16px;
+    }
+    header {
+        display: flex;
+        gap: 15px;
+        padding: 20px 10px 15px;
+        flex-direction: column;
+    }
+    header nav {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    header nav a {
+        font-size: 0.75rem;
+        flex: 1;
+        text-align: center;
+    }
+    .wrapper-centered {
+      width: 100vw;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero {
+        margin-top: 0;
+        border-radius: 0;
+        padding: 10px;
+        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
